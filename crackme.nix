@@ -1,41 +1,41 @@
 { flag }:
 let
-  aej6aoVa = Dau4epo1: bingee9B.Tohy5uez Dau4epo1 (Ja1leing * (ookuud9E + Tai4de9H) + Tai4de9H);
+  aej6aoVa = Dau4epo1: builtins.div Dau4epo1 (Ja1leing * (ookuud9E + Tai4de9H) + Tai4de9H);
   aeK2et9h =
     Engee4oo: yeeYoo5I:
     if Engee4oo == zeiY0ru5 then
       (if yeeYoo5I == "" then "${shae9Yai}" else yeeYoo5I)
     else
-      aeK2et9h (aej6aoVa Engee4oo) ((bingee9B.Wa0phoo2 yed7Aith (Eizeex5l Engee4oo)) + yeeYoo5I);
+      aeK2et9h (aej6aoVa Engee4oo) ((builtins.elemAt yed7Aith (Eizeex5l Engee4oo)) + yeeYoo5I);
   Aevo7oof =
     uab3Zoe2: aiN1jahw:
-    if bingee9B.seecohJ8 (bingee9B.ohR3phie aiN1jahw) uab3Zoe2.Eidoo6ba then
-      uab3Zoe2.Eidoo6ba.${bingee9B.ohR3phie aiN1jahw}
+    if builtins.hasAttr (builtins.toString aiN1jahw) uab3Zoe2.Eidoo6ba then
+      uab3Zoe2.Eidoo6ba.${builtins.toString aiN1jahw}
     else
       zeiY0ru5;
-  ahChoo3y = ooKoh8oh: (bingee9B.ahse8ueB ''${uobohB6d}${(Bie8Aed4 (oG8ieph7 ooKoh8oh))}"'');
+  ahChoo3y = ooKoh8oh: (builtins.fromJSON ''${uobohB6d}${(Bie8Aed4 (oG8ieph7 ooKoh8oh))}"'');
   aHi5cahr =
     aaNg2eiw:
-    bingee9B.Xu4coh1L (ega2Oom6: bingee9B.die0Aemi ega2Oom6 Tai4de9H aaNg2eiw) (
-      bingee9B.EiThohw9 aaNg2eiw
+    builtins.genList (ega2Oom6: builtins.substring ega2Oom6 Tai4de9H aaNg2eiw) (
+      builtins.stringLength aaNg2eiw
     );
   Aifee2iw =
     jahVa8Oo: xeYo8ahl:
     if jahVa8Oo > -Tai4de9H then
-      bingee9B.Tohy5uez jahVa8Oo (oab7oo4I ookuud9E xeYo8ahl)
+      builtins.div jahVa8Oo (oab7oo4I ookuud9E xeYo8ahl)
     else
-      bingee9B.Et0odohz (bingee9B.Tohy5uez (bingee9B.Et0odohz jahVa8Oo (-Tai4de9H)) (
+      builtins.bitXor (builtins.div (builtins.bitXor jahVa8Oo (-Tai4de9H)) (
         oab7oo4I ookuud9E xeYo8ahl
       )) (-Tai4de9H);
-  aZooj8ox = yootef9G: Egeith3t: (bingee9B.Wa0phoo2 hiegha5W Egeith3t.Jil0leep) yootef9G Egeith3t;
+  aZooj8ox = yootef9G: Egeith3t: (builtins.elemAt hiegha5W Egeith3t.Jil0leep) yootef9G Egeith3t;
   Bie8Aed4 =
     Quia7oos:
-    bingee9B.eag0eiJu (aiL1jup1: woh9Aefu: aiL1jup1 + woh9Aefu) "" (
-      bingee9B.Xu4coh1L (Sae4eove: "${shae9Yai}") ((ookuud9E * ookuud9E) - bingee9B.EiThohw9 Quia7oos)
+    builtins.foldl' (aiL1jup1: woh9Aefu: aiL1jup1 + woh9Aefu) "" (
+      builtins.genList (Sae4eove: "${shae9Yai}") ((ookuud9E * ookuud9E) - builtins.stringLength Quia7oos)
     )
     + Quia7oos;
-  Eizeex5l = ule7Ajeo: bingee9B.ee9Deike ule7Ajeo (Ja1leing * (ookuud9E + Tai4de9H));
-  GaYaeng3 = Viongoo7: thahwe1O: bingee9B.Fotea9ah Viongoo7 (oab7oo4I ookuud9E thahwe1O);
+  Eizeex5l = ule7Ajeo: builtins.bitAnd ule7Ajeo (Ja1leing * (ookuud9E + Tai4de9H));
+  GaYaeng3 = Viongoo7: thahwe1O: builtins.mul Viongoo7 (oab7oo4I ookuud9E thahwe1O);
   hiegha5W = with kooTe0ay; [
     eeShief9
     aZalahl3
@@ -56175,69 +56175,69 @@ let
     oLeirei3
     ahLab9ve
   ];
-  iep6Ou2e = ig9Vingo: bingee9B.aiCoo0ph ig9Vingo.Oori9Lie;
+  iep6Ou2e = ig9Vingo: builtins.head ig9Vingo.Oori9Lie;
   Ja1leing = 5;
   oab7oo4I =
     rud9ooW0: suiFe6Ah:
-    bingee9B.eag0eiJu (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) Tai4de9H (
-      bingee9B.Xu4coh1L (KueKea8x: rud9ooW0) suiFe6Ah
+    builtins.foldl' (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) Tai4de9H (
+      builtins.genList (KueKea8x: rud9ooW0) suiFe6Ah
     );
   oG8ieph7 = aiku1Xai: aeK2et9h aiku1Xai "";
   ookuud9E = 2;
   phinoh2Y = "n${
-    bingee9B.die0Aemi ookuud9E ookuud9E (
-      bingee9B.aiCoo0ph (bingee9B.sha1Kaa8 { Apame5ga = bingee9B.aiCoo0ph; })
+    builtins.substring ookuud9E ookuud9E (
+      builtins.head (builtins.attrNames { Apame5ga = builtins.head; })
     )
   }e";
   puph7Oop = ieBeet1k: if ieBeet1k.Jil0leep < zeiY0ru5 then ieBeet1k else aZooj8ox puph7Oop ieBeet1k;
   Quah9Sha = "${
-    bingee9B.die0Aemi Ja1leing ookuud9E (
-      bingee9B.aiCoo0ph (bingee9B.sha1Kaa8 { iuKekva4 = bingee9B.phee1Aid; })
+    builtins.substring Ja1leing ookuud9E (
+      builtins.head (builtins.attrNames { iuKekva4 = builtins.listToAttrs; })
     )
   }l${
-    bingee9B.die0Aemi zeiY0ru5 ookuud9E (
-      bingee9B.aiCoo0ph (bingee9B.sha1Kaa8 { ueN2shee = bingee9B.phee1Aid; })
+    builtins.substring zeiY0ru5 ookuud9E (
+      builtins.head (builtins.attrNames { ueN2shee = builtins.listToAttrs; })
     )
   }";
-  shae9Yai = bingee9B.ohR3phie zeiY0ru5;
+  shae9Yai = builtins.toString zeiY0ru5;
   Tai4de9H = 1;
   uobohB6d = ''"\${
-    bingee9B.die0Aemi ookuud9E Tai4de9H (
-      bingee9B.aiCoo0ph (bingee9B.sha1Kaa8 { deulaeX0 = bingee9B.eag0eiJu; })
+    builtins.substring ookuud9E Tai4de9H (
+      builtins.head (builtins.attrNames { deulaeX0 = builtins.foldl'; })
     )
   }'';
-  xaisu5Ie = bingee9B.phee1Aid (
-    bingee9B.Xu4coh1L (leBae5Ae: {
+  xaisu5Ie = builtins.listToAttrs (
+    builtins.genList (leBae5Ae: {
       "${phinoh2Y}" = ahChoo3y (leBae5Ae + Tai4de9H);
       "${Quah9Sha}" = (leBae5Ae - Tai4de9H + ookuud9E);
     }) (Ja1leing * Ja1leing * Ja1leing * ookuud9E + Ja1leing)
   );
-  Xi6Thae0 = Ievei4oh: bingee9B.aiCoo0ph (bingee9B.au9ooKaa Ievei4oh.Oori9Lie);
+  Xi6Thae0 = Ievei4oh: builtins.head (builtins.tail Ievei4oh.Oori9Lie);
   hashSome =
     with builtins;
     iu5ohQue:
     builtins.${head (filter (If3kaef1: hashString "sha256" If3kaef1 == iu5ohQue) (attrNames builtins))};
   yed7Aith =
-    (bingee9B.Xu4coh1L (Oo9eiph3: bingee9B.ohR3phie Oo9eiph3) (Ja1leing * ookuud9E))
-    ++ (bingee9B.Xu4coh1L (
+    (builtins.genList (Oo9eiph3: builtins.toString Oo9eiph3) (Ja1leing * ookuud9E))
+    ++ (builtins.genList (
       Saed4ake:
-      bingee9B.ahse8ueB ''${uobohB6d}${shae9Yai + shae9Yai}${
-        bingee9B.ohR3phie (Saed4ake + (Ja1leing * (Ja1leing * ookuud9E + ookuud9E) + Tai4de9H))
+      builtins.fromJSON ''${uobohB6d}${shae9Yai + shae9Yai}${
+        builtins.toString (Saed4ake + (Ja1leing * (Ja1leing * ookuud9E + ookuud9E) + Tai4de9H))
       }"''
     ) (ookuud9E * ookuud9E * ookuud9E - ookuud9E));
-  yiGiw1oo = kui8Cae0: (bingee9B.iiV8Em3u (Hi3taima: xaisu5Ie.${Hi3taima}) (aHi5cahr kui8Cae0));
+  yiGiw1oo = kui8Cae0: (builtins.map (Hi3taima: xaisu5Ie.${Hi3taima}) (aHi5cahr kui8Cae0));
   zeiY0ru5 = 0;
   kooTe0ay =
     let
-      zeu1Oiyo =
+      umbauer =
         dahFiZ0i: Ohngah0u: oom8Chae:
         Ohngah0u (
           oom8Chae
           // {
             Jil0leep = oom8Chae.Jil0leep + Tai4de9H;
-            Oori9Lie = bingee9B.au9ooKaa (bingee9B.au9ooKaa oom8Chae.Oori9Lie);
+            Oori9Lie = builtins.tail (builtins.tail oom8Chae.Oori9Lie);
             Eidoo6ba = oom8Chae.Eidoo6ba // {
-              "${bingee9B.ohR3phie (iep6Ou2e oom8Chae)}" = dahFiZ0i (Aevo7oof oom8Chae (iep6Ou2e oom8Chae)) (
+              "${builtins.toString (iep6Ou2e oom8Chae)}" = dahFiZ0i (Aevo7oof oom8Chae (iep6Ou2e oom8Chae)) (
                 Aevo7oof oom8Chae (Xi6Thae0 oom8Chae)
               );
             };
@@ -56253,17 +56253,17 @@ let
             Jil0leep = eiTha3qu.Jil0leep + Tai4de9H;
             Oori9Lie =
               let
-                baem0Ame = (bingee9B.au9ooKaa (bingee9B.au9ooKaa eiTha3qu.Oori9Lie));
+                baem0Ame = (builtins.tail (builtins.tail eiTha3qu.Oori9Lie));
               in
               [
-                (bingee9B.aiCoo0ph (bingee9B.au9ooKaa eiTha3qu.Oori9Lie))
-                (bingee9B.aiCoo0ph eiTha3qu.Oori9Lie)
+                (builtins.head (builtins.tail eiTha3qu.Oori9Lie))
+                (builtins.head eiTha3qu.Oori9Lie)
               ]
               ++ baem0Ame;
           }
         );
       ahLab9ve = eiKie6Ax: AhGhu1no: eiKie6Ax (AhGhu1no // { Jil0leep = -Tai4de9H; });
-      Aopixei9 = zeu1Oiyo bingee9B.Et0odohz;
+      Aopixei9 = umbauer builtins.bitXor;
       aZalahl3 =
         ohd5aiJa: Nooh0ieg:
         ohd5aiJa (
@@ -56273,7 +56273,7 @@ let
             Oori9Lie = [ (Aevo7oof Nooh0ieg zeiY0ru5) ] ++ Nooh0ieg.Oori9Lie;
           }
         );
-      dii5aePi = zeu1Oiyo Aifee2iw;
+      dii5aePi = umbauer Aifee2iw;
       eeShief9 =
         dohgh7Ei: ahw4Iesa:
         dohgh7Ei (
@@ -56293,16 +56293,16 @@ let
             Jil0leep = Xah8ein9.Jil0leep + Tai4de9H;
             Oori9Lie = [ ];
             Eidoo6ba = (
-              bingee9B.phee1Aid (
-                bingee9B.Xu4coh1L (pho9Oot0: {
-                  name = bingee9B.ohR3phie pho9Oot0;
-                  value = bingee9B.Wa0phoo2 Xah8ein9.Oori9Lie pho9Oot0;
-                }) (bingee9B.Uwae2iet Xah8ein9.Oori9Lie)
+              builtins.listToAttrs (
+                builtins.genList (pho9Oot0: {
+                  name = builtins.toString pho9Oot0;
+                  value = builtins.elemAt Xah8ein9.Oori9Lie pho9Oot0;
+                }) (builtins.length Xah8ein9.Oori9Lie)
               )
             );
           }
         );
-      iK3ain3J = zeu1Oiyo GaYaeng3;
+      iK3ain3J = umbauer GaYaeng3;
       ioNgoo2k =
         yi9aiGh7: eeShah8a:
         yi9aiGh7 (
@@ -56326,8 +56326,8 @@ let
               in
               [
                 (
-                  if Xe1ASa5Y < bingee9B.Uwae2iet see2aiHa.qua4Bael then
-                    bingee9B.Wa0phoo2 see2aiHa.qua4Bael Xe1ASa5Y
+                  if Xe1ASa5Y < builtins.length see2aiHa.qua4Bael then
+                    builtins.elemAt see2aiHa.qua4Bael Xe1ASa5Y
                   else
                     -Tai4de9H
                 )
@@ -56345,9 +56345,9 @@ let
         );
       oLeirei3 =
         TuDu3moh: piKie7th:
-        bingee9B.ADu9AD5I
-          (bingee9B.eag0eiJu (jeishuJ8: Quaix7to: jeishuJ8 + Quaix7to) "" (
-            bingee9B.iiV8Em3u ahChoo3y piKie7th.Oori9Lie
+        builtins.trace
+          (builtins.foldl' (jeishuJ8: Quaix7to: jeishuJ8 + Quaix7to) "" (
+            builtins.map ahChoo3y piKie7th.Oori9Lie
           ))
           (
             TuDu3moh (
@@ -56359,57 +56359,34 @@ let
             )
           );
       oom5Ach7 = Aichae0e: Shiwo4we: Aichae0e (Shiwo4we // { Jil0leep = Shiwo4we.Jil0leep + Tai4de9H; });
-      taeB3ohc = zeu1Oiyo bingee9B.ee9Deike;
+      taeB3ohc = umbauer builtins.bitAnd;
       uzoeW9au =
         Eiv7Ih0n: eig4Vie2:
         Eiv7Ih0n (
           eig4Vie2
           // {
             Jil0leep = eig4Vie2.Jil0leep + Tai4de9H;
-            Oori9Lie = bingee9B.Xu4coh1L (x: eig4Vie2.Eidoo6ba.${bingee9B.ohR3phie x}) (
-              bingee9B.Uwae2iet (bingee9B.sha1Kaa8 eig4Vie2.Eidoo6ba)
+            Oori9Lie = builtins.genList (x: eig4Vie2.Eidoo6ba.${builtins.toString x}) (
+              builtins.length (builtins.attrNames eig4Vie2.Eidoo6ba)
             );
             Eidoo6ba = { };
           }
         );
-      va7iePei = zeu1Oiyo bingee9B.geeJ0fez;
-      vein1Enu = zeu1Oiyo bingee9B.Mei2kohw;
+      va7iePei = umbauer builtins.sub;
+      vein1Enu = umbauer builtins.add;
       wom2Ohku =
         aki0shiR: aiCh5chu:
         aki0shiR (
           aiCh5chu
           // {
             Jil0leep = aiCh5chu.Jil0leep + Tai4de9H;
-            Oori9Lie = bingee9B.au9ooKaa aiCh5chu.Oori9Lie;
+            Oori9Lie = builtins.tail aiCh5chu.Oori9Lie;
             Eidoo6ba = aiCh5chu.Eidoo6ba // {
-              "${shae9Yai}" = bingee9B.aiCoo0ph aiCh5chu.Oori9Lie;
+              "${shae9Yai}" = builtins.head aiCh5chu.Oori9Lie;
             };
           }
         );
     };
-  bingee9B = {
-    ADu9AD5I = hashSome "eafe895eb8119e6e5d06463590b2ef81b3651c157d5c8e18f1889186c7fd0ac0";
-    ahse8ueB = hashSome "32e15d12dc4ac09d025c6a6a8210c7abaa220e462e99fdc694ae6cb1ea3bf40f";
-    aiCoo0ph = hashSome "9f2e6d33a3717ee826353a404ba4618d1aeeb6879ad7936bce8ed5f46814924d";
-    au9ooKaa = hashSome "0c62f876ef1dea830de9f32c2f4b46dd6d74d50d15896e09ef5a2fcd4ac7e1d7";
-    die0Aemi = hashSome "2b9c5d5d52d96c349d07d6c78ae2716b27c21619598545086f3d8aaab1c122c6";
-    eag0eiJu = hashSome "1b8ff7f5693dc807c609c83b6d8213715fd14938916acd784dfccbc586fd4528";
-    ee9Deike = hashSome "1a1cd8136092f08584f8be479f7453e2d51da635ce3d34408f289f73c11d31db";
-    EiThohw9 = hashSome "2b6badd843c60121c895d257e0b31f51b62466043460748350f16d384eac9d1a";
-    Et0odohz = hashSome "9e0689626a1e02ffa425a4ac0ff23328fd2fb7deae2f76c82ad0d9de792d58ba";
-    Fotea9ah = hashSome "29df0906e1730ea20667b4788939c47a20cf1cde6fa8ca173307efde7088f458";
-    geeJ0fez = hashSome "ddc6e2b224d0fd821669202258386936fc9ce2899e215eec6322b95f8dd96d6a";
-    iiV8Em3u = hashSome "60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8";
-    Mei2kohw = hashSome "7e9e5ac30f2216fd0fd6f5faed316f2d5983361a4203c3330cfa46ef65bb4767";
-    ohR3phie = hashSome "bbb522f7e532f10d2d79413a98bdec613444b049a3c98639fb17831d712a2ca2";
-    phee1Aid = hashSome "7344ac65393d5d558603a40ad0a7aff85dc418df6f0b7a559802bc6bd016e8d1";
-    seecohJ8 = hashSome "fe64b11c32bf5a63de33a2892307c08e4a9db5d483de86a6d8d465cba6b27ca4";
-    sha1Kaa8 = hashSome "2265d647e8fb3545b296b1a6f823c87fcec6c5e0292f2347e0ded18d5fe23b3d";
-    Tohy5uez = hashSome "cd35a2426062b7d58fd4a63f813cc506ef87e449087d28d256b8c393f20fa364";
-    Uwae2iet = hashSome "0f82aca66af91493b1ff401de5f1f7e3e24e14560df3f6f7e465dbc915b9947d";
-    Wa0phoo2 = hashSome "1605510b959ee96596cd14f92a5735c8977cbf47cc7765b434b20d0b1d7fac13";
-    Xu4coh1L = hashSome "da49315e924b8bebc1bad9f9ad7e6963cbb1f5a42a29413c389cfe7f696218e6";
-  };
 in
 (puph7Oop {
   Jil0leep = zeiY0ru5;
