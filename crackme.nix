@@ -1,42 +1,42 @@
 { flag }:
 let
-  aej6aoVa = Dau4epo1: builtins.div Dau4epo1 (Ja1leing * (ookuud9E + Tai4de9H) + Tai4de9H);
-  aeK2et9h =
-    Engee4oo: yeeYoo5I:
-    if Engee4oo == zeiY0ru5 then
-      (if yeeYoo5I == "" then "${shae9Yai}" else yeeYoo5I)
+  divideBy16 = Dau4epo1: builtins.div Dau4epo1 (5 * (2 + 1) + 1);
+  toHexString =
+    number: char:
+    if number == 0 then
+      (if char == "" then "0" else char)
     else
-      aeK2et9h (aej6aoVa Engee4oo) ((builtins.elemAt yed7Aith (Eizeex5l Engee4oo)) + yeeYoo5I);
+      toHexString (divideBy16 number) ((builtins.elemAt hexChars (bitAndWith15 number)) + char);
   Aevo7oof =
     uab3Zoe2: aiN1jahw:
     if builtins.hasAttr (builtins.toString aiN1jahw) uab3Zoe2.Eidoo6ba then
       uab3Zoe2.Eidoo6ba.${builtins.toString aiN1jahw}
     else
-      zeiY0ru5;
-  ahChoo3y = ooKoh8oh: (builtins.fromJSON ''${uobohB6d}${(Bie8Aed4 (oG8ieph7 ooKoh8oh))}"'');
-  aHi5cahr =
-    aaNg2eiw:
-    builtins.genList (ega2Oom6: builtins.substring ega2Oom6 Tai4de9H aaNg2eiw) (
-      builtins.stringLength aaNg2eiw
+      0;
+  toUnicode = ooKoh8oh: (builtins.fromJSON ''"\u${(zfillTo4 (toHexString ooKoh8oh ""))}"'');
+  toCharList =
+    string:
+    builtins.genList (index: builtins.substring index 1 string) (
+      builtins.stringLength string
     );
   Aifee2iw =
     jahVa8Oo: xeYo8ahl:
-    if jahVa8Oo > -Tai4de9H then
-      builtins.div jahVa8Oo (oab7oo4I ookuud9E xeYo8ahl)
+    if jahVa8Oo > -1 then
+      builtins.div jahVa8Oo (oab7oo4I 2 xeYo8ahl)
     else
-      builtins.bitXor (builtins.div (builtins.bitXor jahVa8Oo (-Tai4de9H)) (
-        oab7oo4I ookuud9E xeYo8ahl
-      )) (-Tai4de9H);
-  aZooj8ox = yootef9G: Egeith3t: (builtins.elemAt hiegha5W Egeith3t.Jil0leep) yootef9G Egeith3t;
-  Bie8Aed4 =
+      builtins.bitXor (builtins.div (builtins.bitXor jahVa8Oo (-1)) (
+        oab7oo4I 2 xeYo8ahl
+      )) (-1);
+  aZooj8ox = recFunc: recParams: (builtins.elemAt WTF recParams.someIntMaybeDepth) recFunc recParams;
+  zfillTo4 =
     Quia7oos:
-    builtins.foldl' (aiL1jup1: woh9Aefu: aiL1jup1 + woh9Aefu) "" (
-      builtins.genList (Sae4eove: "${shae9Yai}") ((ookuud9E * ookuud9E) - builtins.stringLength Quia7oos)
+    builtins.foldl' (x: y: x + y) "" (
+      builtins.genList (Sae4eove: "0") ((4) - builtins.stringLength Quia7oos)
     )
     + Quia7oos;
-  Eizeex5l = ule7Ajeo: builtins.bitAnd ule7Ajeo (Ja1leing * (ookuud9E + Tai4de9H));
-  GaYaeng3 = Viongoo7: thahwe1O: builtins.mul Viongoo7 (oab7oo4I ookuud9E thahwe1O);
-  hiegha5W = with kooTe0ay; [
+  bitAndWith15 = ule7Ajeo: builtins.bitAnd ule7Ajeo (5 * (2 + 1));
+  GaYaeng3 = Viongoo7: thahwe1O: builtins.mul Viongoo7 (oab7oo4I 2 thahwe1O);
+  WTF = with kooTe0ay; [
     eeShief9
     aZalahl3
     eiy1Chui
@@ -56175,58 +56175,29 @@ let
     oLeirei3
     ahLab9ve
   ];
-  iep6Ou2e = ig9Vingo: builtins.head ig9Vingo.Oori9Lie;
-  Ja1leing = 5;
+  headOfOOri9Lie = ig9Vingo: builtins.head ig9Vingo.Oori9Lie;
   oab7oo4I =
     rud9ooW0: suiFe6Ah:
-    builtins.foldl' (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) Tai4de9H (
+    builtins.foldl' (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) 1 (
       builtins.genList (KueKea8x: rud9ooW0) suiFe6Ah
     );
-  oG8ieph7 = aiku1Xai: aeK2et9h aiku1Xai "";
-  ookuud9E = 2;
-  phinoh2Y = "n${
-    builtins.substring ookuud9E ookuud9E (
-      builtins.head (builtins.attrNames { Apame5ga = builtins.head; })
-    )
-  }e";
-  puph7Oop = ieBeet1k: if ieBeet1k.Jil0leep < zeiY0ru5 then ieBeet1k else aZooj8ox puph7Oop ieBeet1k;
-  Quah9Sha = "${
-    builtins.substring Ja1leing ookuud9E (
-      builtins.head (builtins.attrNames { iuKekva4 = builtins.listToAttrs; })
-    )
-  }l${
-    builtins.substring zeiY0ru5 ookuud9E (
-      builtins.head (builtins.attrNames { ueN2shee = builtins.listToAttrs; })
-    )
-  }";
-  shae9Yai = builtins.toString zeiY0ru5;
-  Tai4de9H = 1;
-  uobohB6d = ''"\${
-    builtins.substring ookuud9E Tai4de9H (
-      builtins.head (builtins.attrNames { deulaeX0 = builtins.foldl'; })
-    )
-  }'';
-  xaisu5Ie = builtins.listToAttrs (
-    builtins.genList (leBae5Ae: {
-      "${phinoh2Y}" = ahChoo3y (leBae5Ae + Tai4de9H);
-      "${Quah9Sha}" = (leBae5Ae - Tai4de9H + ookuud9E);
-    }) (Ja1leing * Ja1leing * Ja1leing * ookuud9E + Ja1leing)
+  recursiveFunc = recParams: if recParams.someIntMaybeDepth < 0 then recParams else aZooj8ox recursiveFunc recParams;
+  first256Unicodes = builtins.listToAttrs (
+    builtins.genList (index: {
+      name = toUnicode (index + 1);
+      value = (index + 1);
+    }) 255
   );
   Xi6Thae0 = Ievei4oh: builtins.head (builtins.tail Ievei4oh.Oori9Lie);
-  hashSome =
-    with builtins;
-    iu5ohQue:
-    builtins.${head (filter (If3kaef1: hashString "sha256" If3kaef1 == iu5ohQue) (attrNames builtins))};
-  yed7Aith =
-    (builtins.genList (Oo9eiph3: builtins.toString Oo9eiph3) (Ja1leing * ookuud9E))
+  hexChars =
+    [ "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" ]
     ++ (builtins.genList (
       Saed4ake:
-      builtins.fromJSON ''${uobohB6d}${shae9Yai + shae9Yai}${
-        builtins.toString (Saed4ake + (Ja1leing * (Ja1leing * ookuud9E + ookuud9E) + Tai4de9H))
+      builtins.fromJSON ''"\u00${
+        builtins.toString (Saed4ake + (5 * (5 * 2 + 2) + 1))
       }"''
-    ) (ookuud9E * ookuud9E * ookuud9E - ookuud9E));
-  yiGiw1oo = kui8Cae0: (builtins.map (Hi3taima: xaisu5Ie.${Hi3taima}) (aHi5cahr kui8Cae0));
-  zeiY0ru5 = 0;
+    ) (2 * 2 * 2 - 2));
+  toCharCodes = kui8Cae0: (builtins.map (Hi3taima: first256Unicodes.${Hi3taima}) (toCharList kui8Cae0));
   kooTe0ay =
     let
       umbauer =
@@ -56234,10 +56205,10 @@ let
         Ohngah0u (
           oom8Chae
           // {
-            Jil0leep = oom8Chae.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = oom8Chae.someIntMaybeDepth + 1;
             Oori9Lie = builtins.tail (builtins.tail oom8Chae.Oori9Lie);
             Eidoo6ba = oom8Chae.Eidoo6ba // {
-              "${builtins.toString (iep6Ou2e oom8Chae)}" = dahFiZ0i (Aevo7oof oom8Chae (iep6Ou2e oom8Chae)) (
+              "${builtins.toString (headOfOOri9Lie oom8Chae)}" = dahFiZ0i (Aevo7oof oom8Chae (headOfOOri9Lie oom8Chae)) (
                 Aevo7oof oom8Chae (Xi6Thae0 oom8Chae)
               );
             };
@@ -56250,7 +56221,7 @@ let
         Zac3ahsh (
           eiTha3qu
           // {
-            Jil0leep = eiTha3qu.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = eiTha3qu.someIntMaybeDepth + 1;
             Oori9Lie =
               let
                 baem0Ame = (builtins.tail (builtins.tail eiTha3qu.Oori9Lie));
@@ -56262,15 +56233,15 @@ let
               ++ baem0Ame;
           }
         );
-      ahLab9ve = eiKie6Ax: AhGhu1no: eiKie6Ax (AhGhu1no // { Jil0leep = -Tai4de9H; });
+      ahLab9ve = eiKie6Ax: AhGhu1no: eiKie6Ax (AhGhu1no // { someIntMaybeDepth = -1; });
       Aopixei9 = umbauer builtins.bitXor;
       aZalahl3 =
         ohd5aiJa: Nooh0ieg:
         ohd5aiJa (
           Nooh0ieg
           // {
-            Jil0leep = Nooh0ieg.Jil0leep + Tai4de9H;
-            Oori9Lie = [ (Aevo7oof Nooh0ieg zeiY0ru5) ] ++ Nooh0ieg.Oori9Lie;
+            someIntMaybeDepth = Nooh0ieg.someIntMaybeDepth + 1;
+            Oori9Lie = [ (Aevo7oof Nooh0ieg 0) ] ++ Nooh0ieg.Oori9Lie;
           }
         );
       dii5aePi = umbauer Aifee2iw;
@@ -56279,9 +56250,9 @@ let
         dohgh7Ei (
           ahw4Iesa
           // {
-            Jil0leep = ahw4Iesa.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = ahw4Iesa.someIntMaybeDepth + 1;
             Eidoo6ba = ahw4Iesa.Eidoo6ba // {
-              "${shae9Yai}" = (Aevo7oof ahw4Iesa zeiY0ru5) - Tai4de9H;
+              "0" = (Aevo7oof ahw4Iesa 0) - 1;
             };
           }
         );
@@ -56290,7 +56261,7 @@ let
         eKah3aim (
           Xah8ein9
           // {
-            Jil0leep = Xah8ein9.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = Xah8ein9.someIntMaybeDepth + 1;
             Oori9Lie = [ ];
             Eidoo6ba = (
               builtins.listToAttrs (
@@ -56308,31 +56279,31 @@ let
         yi9aiGh7 (
           eeShah8a
           // {
-            Jil0leep = eeShah8a.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = eeShah8a.someIntMaybeDepth + 1;
             Eidoo6ba = eeShah8a.Eidoo6ba // {
-              "${shae9Yai}" = (Aevo7oof eeShah8a zeiY0ru5) + Tai4de9H;
+              "0" = (Aevo7oof eeShah8a 0) + 1;
             };
           }
         );
       Jaenae1a =
-        jaFir1ie: see2aiHa:
+        jaFir1ie: recursiveParams:
         jaFir1ie (
-          see2aiHa
+          recursiveParams
           // {
-            Jil0leep = see2aiHa.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = recursiveParams.someIntMaybeDepth + 1;
             Oori9Lie =
               let
-                Xe1ASa5Y = (Aevo7oof see2aiHa zeiY0ru5);
+                Xe1ASa5Y = (Aevo7oof recursiveParams 0);
               in
               [
                 (
-                  if Xe1ASa5Y < builtins.length see2aiHa.qua4Bael then
-                    builtins.elemAt see2aiHa.qua4Bael Xe1ASa5Y
+                  if Xe1ASa5Y < builtins.length recursiveParams.bytes then
+                    builtins.elemAt recursiveParams.bytes Xe1ASa5Y
                   else
-                    -Tai4de9H
+                    -1
                 )
               ]
-              ++ see2aiHa.Oori9Lie;
+              ++ recursiveParams.Oori9Lie;
           }
         );
       OhKie2uz =
@@ -56340,32 +56311,32 @@ let
         izuGh1uw (
           Chi7ze8p
           // {
-            Jil0leep = Chi7ze8p.Jil0leep + (Aevo7oof Chi7ze8p zeiY0ru5);
+            someIntMaybeDepth = Chi7ze8p.someIntMaybeDepth + (Aevo7oof Chi7ze8p 0);
           }
         );
       oLeirei3 =
         TuDu3moh: piKie7th:
         builtins.trace
           (builtins.foldl' (jeishuJ8: Quaix7to: jeishuJ8 + Quaix7to) "" (
-            builtins.map ahChoo3y piKie7th.Oori9Lie
+            builtins.map toUnicode piKie7th.Oori9Lie
           ))
           (
             TuDu3moh (
               piKie7th
               // {
-                Jil0leep = piKie7th.Jil0leep + Tai4de9H;
+                someIntMaybeDepth = piKie7th.someIntMaybeDepth + 1;
                 Oori9Lie = [ ];
               }
             )
           );
-      oom5Ach7 = Aichae0e: Shiwo4we: Aichae0e (Shiwo4we // { Jil0leep = Shiwo4we.Jil0leep + Tai4de9H; });
+      oom5Ach7 = Aichae0e: Shiwo4we: Aichae0e (Shiwo4we // { someIntMaybeDepth = Shiwo4we.someIntMaybeDepth + 1; });
       taeB3ohc = umbauer builtins.bitAnd;
       uzoeW9au =
         Eiv7Ih0n: eig4Vie2:
         Eiv7Ih0n (
           eig4Vie2
           // {
-            Jil0leep = eig4Vie2.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = eig4Vie2.someIntMaybeDepth + 1;
             Oori9Lie = builtins.genList (x: eig4Vie2.Eidoo6ba.${builtins.toString x}) (
               builtins.length (builtins.attrNames eig4Vie2.Eidoo6ba)
             );
@@ -56379,18 +56350,18 @@ let
         aki0shiR (
           aiCh5chu
           // {
-            Jil0leep = aiCh5chu.Jil0leep + Tai4de9H;
+            someIntMaybeDepth = aiCh5chu.someIntMaybeDepth + 1;
             Oori9Lie = builtins.tail aiCh5chu.Oori9Lie;
             Eidoo6ba = aiCh5chu.Eidoo6ba // {
-              "${shae9Yai}" = builtins.head aiCh5chu.Oori9Lie;
+              "0" = builtins.head aiCh5chu.Oori9Lie;
             };
           }
         );
     };
 in
-(puph7Oop {
-  Jil0leep = zeiY0ru5;
+(recursiveFunc {
+  someIntMaybeDepth = 0;
   Oori9Lie = [ ];
   Eidoo6ba = { };
-  qua4Bael = yiGiw1oo flag;
-}).Jil0leep
+  bytes = toCharCodes flag;
+}).someIntMaybeDepth
