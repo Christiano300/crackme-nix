@@ -7,10 +7,10 @@ let
       (if char == "" then "0" else char)
     else
       toHexString (divideBy16 number) ((builtins.elemAt hexChars (bitAndWith15 number)) + char);
-  Aevo7oof =
-    uab3Zoe2: aiN1jahw:
-    if builtins.hasAttr (builtins.toString aiN1jahw) uab3Zoe2.Eidoo6ba then
-      uab3Zoe2.Eidoo6ba.${builtins.toString aiN1jahw}
+  getAttrOr0 =
+    recParams: intOften0:
+    if builtins.hasAttr (builtins.toString intOften0) recParams.extraAttrs then
+      recParams.extraAttrs.${builtins.toString intOften0}
     else
       0;
   toUnicode = ooKoh8oh: (builtins.fromJSON ''"\u${(zfillTo4 (toHexString ooKoh8oh ""))}"'');
@@ -22,21 +22,21 @@ let
   Aifee2iw =
     jahVa8Oo: xeYo8ahl:
     if jahVa8Oo > -1 then
-      builtins.div jahVa8Oo (oab7oo4I 2 xeYo8ahl)
+      builtins.div jahVa8Oo (pow 2 xeYo8ahl)
     else
       builtins.bitXor (builtins.div (builtins.bitXor jahVa8Oo (-1)) (
-        oab7oo4I 2 xeYo8ahl
+        pow 2 xeYo8ahl
       )) (-1);
-  aZooj8ox = recFunc: recParams: (builtins.elemAt WTF recParams.someIntMaybeDepth) recFunc recParams;
+  callCarrier = recFunc: recParams: (builtins.elemAt WTF recParams.someIntMaybeDepth) recFunc recParams;
   zfillTo4 =
     Quia7oos:
     builtins.foldl' (x: y: x + y) "" (
-      builtins.genList (Sae4eove: "0") ((4) - builtins.stringLength Quia7oos)
+      builtins.genList (Sae4eove: "0") (4 - builtins.stringLength Quia7oos)
     )
     + Quia7oos;
   bitAndWith15 = ule7Ajeo: builtins.bitAnd ule7Ajeo (5 * (2 + 1));
-  GaYaeng3 = Viongoo7: thahwe1O: builtins.mul Viongoo7 (oab7oo4I 2 thahwe1O);
-  WTF = with kooTe0ay; [
+  GaYaeng3 = Viongoo7: thahwe1O: builtins.mul Viongoo7 (pow 2 thahwe1O);
+  WTF = with carriers; [
     eeShief9
     aZalahl3
     eiy1Chui
@@ -56175,20 +56175,20 @@ let
     oLeirei3
     ahLab9ve
   ];
-  headOfOOri9Lie = ig9Vingo: builtins.head ig9Vingo.Oori9Lie;
-  oab7oo4I =
-    rud9ooW0: suiFe6Ah:
+  headOfextraList = ig9Vingo: builtins.head ig9Vingo.extraList;
+  pow =
+    base: exp:
     builtins.foldl' (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) 1 (
-      builtins.genList (KueKea8x: rud9ooW0) suiFe6Ah
+      builtins.genList (index: base) exp
     );
-  recursiveFunc = recParams: if recParams.someIntMaybeDepth < 0 then recParams else aZooj8ox recursiveFunc recParams;
+  recursiveFunc = recParams: if recParams.someIntMaybeDepth < 0 then recParams else callCarrier recursiveFunc recParams;
   first256Unicodes = builtins.listToAttrs (
     builtins.genList (index: {
       name = toUnicode (index + 1);
       value = (index + 1);
     }) 255
   );
-  Xi6Thae0 = Ievei4oh: builtins.head (builtins.tail Ievei4oh.Oori9Lie);
+  headOfTailOfExtraList = Ievei4oh: builtins.head (builtins.tail Ievei4oh.extraList);
   hexChars =
     [ "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" ]
     ++ (builtins.genList (
@@ -56198,18 +56198,18 @@ let
       }"''
     ) (2 * 2 * 2 - 2));
   toCharCodes = kui8Cae0: (builtins.map (Hi3taima: first256Unicodes.${Hi3taima}) (toCharList kui8Cae0));
-  kooTe0ay =
+  carriers =
     let
-      umbauer =
-        dahFiZ0i: Ohngah0u: oom8Chae:
-        Ohngah0u (
-          oom8Chae
+      builtinToCarrier =
+        func: recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = oom8Chae.someIntMaybeDepth + 1;
-            Oori9Lie = builtins.tail (builtins.tail oom8Chae.Oori9Lie);
-            Eidoo6ba = oom8Chae.Eidoo6ba // {
-              "${builtins.toString (headOfOOri9Lie oom8Chae)}" = dahFiZ0i (Aevo7oof oom8Chae (headOfOOri9Lie oom8Chae)) (
-                Aevo7oof oom8Chae (Xi6Thae0 oom8Chae)
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList = builtins.tail (builtins.tail recParams.extraList);
+            extraAttrs = recParams.extraAttrs // {
+              "${builtins.toString (headOfextraList recParams)}" = func (getAttrOr0 recParams (headOfextraList recParams)) (
+                getAttrOr0 recParams (headOfTailOfExtraList recParams)
               );
             };
           }
@@ -56217,83 +56217,83 @@ let
     in
     {
       ahCee6ae =
-        Zac3ahsh: eiTha3qu:
-        Zac3ahsh (
-          eiTha3qu
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = eiTha3qu.someIntMaybeDepth + 1;
-            Oori9Lie =
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList =
               let
-                baem0Ame = (builtins.tail (builtins.tail eiTha3qu.Oori9Lie));
+                baem0Ame = (builtins.tail (builtins.tail recParams.extraList));
               in
               [
-                (builtins.head (builtins.tail eiTha3qu.Oori9Lie))
-                (builtins.head eiTha3qu.Oori9Lie)
+                (builtins.head (builtins.tail recParams.extraList))
+                (builtins.head recParams.extraList)
               ]
               ++ baem0Ame;
           }
         );
       ahLab9ve = eiKie6Ax: AhGhu1no: eiKie6Ax (AhGhu1no // { someIntMaybeDepth = -1; });
-      Aopixei9 = umbauer builtins.bitXor;
+      Aopixei9 = builtinToCarrier builtins.bitXor;
       aZalahl3 =
-        ohd5aiJa: Nooh0ieg:
-        ohd5aiJa (
-          Nooh0ieg
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = Nooh0ieg.someIntMaybeDepth + 1;
-            Oori9Lie = [ (Aevo7oof Nooh0ieg 0) ] ++ Nooh0ieg.Oori9Lie;
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList = [ (getAttrOr0 recParams 0) ] ++ recParams.extraList;
           }
         );
-      dii5aePi = umbauer Aifee2iw;
+      dii5aePi = builtinToCarrier Aifee2iw;
       eeShief9 =
-        dohgh7Ei: ahw4Iesa:
-        dohgh7Ei (
-          ahw4Iesa
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = ahw4Iesa.someIntMaybeDepth + 1;
-            Eidoo6ba = ahw4Iesa.Eidoo6ba // {
-              "0" = (Aevo7oof ahw4Iesa 0) - 1;
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraAttrs = recParams.extraAttrs // {
+              "0" = (getAttrOr0 recParams 0) - 1;
             };
           }
         );
       eiy1Chui =
-        eKah3aim: Xah8ein9:
-        eKah3aim (
-          Xah8ein9
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = Xah8ein9.someIntMaybeDepth + 1;
-            Oori9Lie = [ ];
-            Eidoo6ba = (
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList = [ ];
+            extraAttrs = (
               builtins.listToAttrs (
                 builtins.genList (pho9Oot0: {
                   name = builtins.toString pho9Oot0;
-                  value = builtins.elemAt Xah8ein9.Oori9Lie pho9Oot0;
-                }) (builtins.length Xah8ein9.Oori9Lie)
+                  value = builtins.elemAt recParams.extraList pho9Oot0;
+                }) (builtins.length recParams.extraList)
               )
             );
           }
         );
-      iK3ain3J = umbauer GaYaeng3;
+      iK3ain3J = builtinToCarrier GaYaeng3;
       ioNgoo2k =
-        yi9aiGh7: eeShah8a:
-        yi9aiGh7 (
-          eeShah8a
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = eeShah8a.someIntMaybeDepth + 1;
-            Eidoo6ba = eeShah8a.Eidoo6ba // {
-              "0" = (Aevo7oof eeShah8a 0) + 1;
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraAttrs = recParams.extraAttrs // {
+              "0" = (getAttrOr0 recParams 0) + 1;
             };
           }
         );
       Jaenae1a =
-        jaFir1ie: recursiveParams:
-        jaFir1ie (
+        recursor: recursiveParams:
+        recursor (
           recursiveParams
           // {
             someIntMaybeDepth = recursiveParams.someIntMaybeDepth + 1;
-            Oori9Lie =
+            extraList =
               let
-                Xe1ASa5Y = (Aevo7oof recursiveParams 0);
+                Xe1ASa5Y = (getAttrOr0 recursiveParams 0);
               in
               [
                 (
@@ -56303,57 +56303,57 @@ let
                     -1
                 )
               ]
-              ++ recursiveParams.Oori9Lie;
+              ++ recursiveParams.extraList;
           }
         );
       OhKie2uz =
-        izuGh1uw: Chi7ze8p:
-        izuGh1uw (
-          Chi7ze8p
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = Chi7ze8p.someIntMaybeDepth + (Aevo7oof Chi7ze8p 0);
+            someIntMaybeDepth = recParams.someIntMaybeDepth + (getAttrOr0 recParams 0);
           }
         );
       oLeirei3 =
-        TuDu3moh: piKie7th:
+        recursor: recParams:
         builtins.trace
           (builtins.foldl' (jeishuJ8: Quaix7to: jeishuJ8 + Quaix7to) "" (
-            builtins.map toUnicode piKie7th.Oori9Lie
+            builtins.map toUnicode recParams.extraList
           ))
           (
-            TuDu3moh (
-              piKie7th
+            recursor (
+              recParams
               // {
-                someIntMaybeDepth = piKie7th.someIntMaybeDepth + 1;
-                Oori9Lie = [ ];
+                someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+                extraList = [ ];
               }
             )
           );
       oom5Ach7 = Aichae0e: Shiwo4we: Aichae0e (Shiwo4we // { someIntMaybeDepth = Shiwo4we.someIntMaybeDepth + 1; });
-      taeB3ohc = umbauer builtins.bitAnd;
+      taeB3ohc = builtinToCarrier builtins.bitAnd;
       uzoeW9au =
-        Eiv7Ih0n: eig4Vie2:
-        Eiv7Ih0n (
-          eig4Vie2
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = eig4Vie2.someIntMaybeDepth + 1;
-            Oori9Lie = builtins.genList (x: eig4Vie2.Eidoo6ba.${builtins.toString x}) (
-              builtins.length (builtins.attrNames eig4Vie2.Eidoo6ba)
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList = builtins.genList (x: recParams.extraAttrs.${builtins.toString x}) (
+              builtins.length (builtins.attrNames recParams.extraAttrs)
             );
-            Eidoo6ba = { };
+            extraAttrs = { };
           }
         );
-      va7iePei = umbauer builtins.sub;
-      vein1Enu = umbauer builtins.add;
+      va7iePei = builtinToCarrier builtins.sub;
+      vein1Enu = builtinToCarrier builtins.add;
       wom2Ohku =
-        aki0shiR: aiCh5chu:
-        aki0shiR (
-          aiCh5chu
+        recursor: recParams:
+        recursor (
+          recParams
           // {
-            someIntMaybeDepth = aiCh5chu.someIntMaybeDepth + 1;
-            Oori9Lie = builtins.tail aiCh5chu.Oori9Lie;
-            Eidoo6ba = aiCh5chu.Eidoo6ba // {
-              "0" = builtins.head aiCh5chu.Oori9Lie;
+            someIntMaybeDepth = recParams.someIntMaybeDepth + 1;
+            extraList = builtins.tail recParams.extraList;
+            extraAttrs = recParams.extraAttrs // {
+              "0" = builtins.head recParams.extraList;
             };
           }
         );
@@ -56361,7 +56361,7 @@ let
 in
 (recursiveFunc {
   someIntMaybeDepth = 0;
-  Oori9Lie = [ ];
-  Eidoo6ba = { };
+  extraList = [ ];
+  extraAttrs = { };
   bytes = toCharCodes flag;
 }).someIntMaybeDepth
