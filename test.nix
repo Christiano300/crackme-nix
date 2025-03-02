@@ -1,7 +1,8 @@
-let aHi5cahr =
-    string:
-    builtins.genList (index: builtins.substring index 1 string) (
-      builtins.stringLength string
-    );
-    in
-    aHi5cahr "hallo"
+let
+                baem0Ame = (builtins.tail (builtins.tail [1 2 3 4]));
+              in
+              [
+                (builtins.head (builtins.tail [1 2 3 4]))
+                (builtins.head [1 2 3 4])
+              ]
+              ++ baem0Ame
