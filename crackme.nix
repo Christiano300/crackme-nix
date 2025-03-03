@@ -36,6 +36,7 @@ let
     + Quia7oos;
   bitAndWith15 = ule7Ajeo: builtins.bitAnd ule7Ajeo (5 * (2 + 1));
   xMul2TotheY = Viongoo7: thahwe1O: builtins.mul Viongoo7 (pow 2 thahwe1O);
+
   WTF = with carriers; [
     dec
     push
@@ -56181,6 +56182,7 @@ let
     builtins.foldl' (cier8Wov: Chien5Oh: cier8Wov * Chien5Oh) 1 (
       builtins.genList (index: base) exp
     );
+  debug = whatever: message: builtins.trace (builtins.toJSON whatever.extraAttrs) whatever;
   recursiveFunc = recParams: if recParams.instrPointer < 0 then recParams else callCarrier recursiveFunc recParams;
   first256Unicodes = builtins.listToAttrs (
     builtins.genList (index: {
@@ -56278,13 +56280,13 @@ let
       inc =
         recursor: recParams:
         recursor (
-          recParams
+          debug (recParams
           // {
             instrPointer = recParams.instrPointer + 1;
             extraAttrs = recParams.extraAttrs // {
               "0" = (getAttrOr0 recParams 0) + 1;
             };
-          }
+          }) "mem: "
         );
       pushFlagAtA0 =
         recursor: recursiveParams:
@@ -56312,7 +56314,7 @@ let
         recursor (
           recParams
           // {
-            instrPointer = recParams.instrPointer + (getAttrOr0 recParams 0);
+            instrPointer = builtins.trace ((builtins.toJSON recParams.extraAttrs) + "JUMP") (recParams.instrPointer + (getAttrOr0 recParams 0));
           }
         );
       printBuf =
