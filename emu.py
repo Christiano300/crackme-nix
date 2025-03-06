@@ -38,7 +38,7 @@ class State:
         x_v = self.mem.get(str(x), 0)
         y_v = self.mem.get(str(y), 0)
         res = func(x_v, y_v)
-        print(f"{self.instr_pointer}: mem[{x}] = {x_v:10d} {repr} {y_v:10d} ({res})")
+        print(f"{self.instr_pointer:<6d}: mem[{x}] = {x_v:10d} {repr:5s} {y_v:10d} ({res})")
         self.mem[str(x)] = res
         self.instr_pointer += 1
 
