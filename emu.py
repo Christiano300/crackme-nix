@@ -23,8 +23,8 @@ class State:
             "_bitXor": lambda: self.instr(lambda x, y: x ^ y, "^"),
             "_sub": lambda: self.instr(lambda x, y: x - y, "-"),
             "_add": lambda: self.instr(lambda x, y: x + y, "+"),
-            "_mul2Pow": lambda: self.instr(lambda x, y: x * 2**y, "* 2 ^"),
-            "_div2Pow": lambda: self.instr(self.div2_pow, "/ 2 ^"),
+            "_mul2Pow": lambda: self.instr(lambda x, y: x * 2**y, "<<"),
+            "_div2Pow": lambda: self.instr(self.div2_pow, ">>"),
         }
 
     def div2_pow(self, x, y):
@@ -38,7 +38,7 @@ class State:
         x_v = self.mem.get(str(x), 0)
         y_v = self.mem.get(str(y), 0)
         res = func(x_v, y_v)
-        print(f"{self.instr_pointer:<6d}: mem[{x}] = {x_v:10d} {repr:5s} {y_v:10d} ({res})")
+        print(f"{self.instr_pointer:<6d}: mem[{x}] = {x_v:10d} {repr:2s} {y_v:10d} ({res})")
         self.mem[str(x)] = res
         self.instr_pointer += 1
 
